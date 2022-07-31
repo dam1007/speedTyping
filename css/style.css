@@ -1,0 +1,122 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: rgba(214,230,245);
+    padding: 30px;
+    box-sizing: border-box;
+}
+.wrapper {
+    max-width: 770px;
+    padding: 35px;
+    background: #fff;
+    border-radius: 10px;
+}
+.wrapper .input-field {
+    z-index: -999;
+    opacity: 0;
+    position: absolute;
+}
+.wrapper .content-box {
+    padding: 13px 20px 0;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+.content-box .typing-text {
+    max-height: 255px;
+    overflow-y: auto;
+}
+.typing-text p {
+    font-size: 21px;
+    /* text-align: justify; */
+    letter-spacing: 1px;
+    word-break: break-all;
+}
+.typing-text p span {
+    position: relative;
+}
+.typing-text p span.correct {
+    color: green;
+}
+.typing-text p span.incorrect {
+    color: red;
+    background: pink;
+    outline: 1px solid #fff;
+    border-radius: 4px;
+}
+.typing-text p span.active {
+    color: rgb(55, 188, 197);
+}
+.typing-text p span.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    opacity: 0;
+    background: rgb(105 179 249);
+    animation: blink 1s ease-in-out infinite;
+}
+@keyframes blink {
+    50% {
+        opacity: 1;
+    }
+}
+
+.content-box .content {
+    display: flex;
+    align-items: center;
+    margin-top: 17px;
+    padding-bottom: 20px;
+    border-top: 1px solid #ccc;
+    justify-content: space-between;
+}
+.content .result-details  {
+    display: flex;
+    width: calc(100% - 140px);
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.result-details li {
+    height: 22px;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+.result-details li:not(:first-child){
+    /* padding-left: 22px; */
+    /* border-left: 1px solid #ccc; */
+}
+.result-details li p {
+    font-size: 19px;
+}
+.result-details li span {
+    display: block;
+    margin-left: 10px;
+    font-size: 20px;
+}
+.result-details li:not(:first-child) span {
+    font-weight: 500;
+}
+.result-details li b {
+    font-weight: 500;
+}
+
+.content button {
+    border: none;
+    outline: none;
+    width: 105px;
+    padding: 8px 0;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    background: rgb(59, 156, 246);
+    transition: transform 0.3s ease;
+    margin-top: 20px;
+}
+.content button:active {
+    transform: scale(0.97);
+}
